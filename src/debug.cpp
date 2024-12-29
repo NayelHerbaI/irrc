@@ -6,7 +6,7 @@
 /*   By: nherbal <nherbal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 00:39:07 by nherbal           #+#    #+#             */
-/*   Updated: 2024/12/30 00:56:20 by nherbal          ###   ########.fr       */
+/*   Updated: 2024/12/30 02:54:54 by nherbal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ void debugServerState(
     const std::map<std::string, std::set<int>>& inviteList,
     const std::map<int, Client>& clients
 ) {
+    // Start printing in white
+    std::cout << "\033[37m";  // Set foreground color to white
+
     std::cout << "\n===================== SERVER STATE DEBUG =====================" << std::endl;
 
     // Manually set invite-only mode for testing
@@ -65,4 +68,7 @@ void debugServerState(
     }
 
     std::cout << "=============================================================\n" << std::endl;
+
+    // Reset color back to default
+    std::cout << "\033[0m";
 }

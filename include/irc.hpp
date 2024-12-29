@@ -6,7 +6,7 @@
 /*   By: nherbal <nherbal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:07:19 by nherbal           #+#    #+#             */
-/*   Updated: 2024/12/30 02:41:43 by nherbal          ###   ########.fr       */
+/*   Updated: 2024/12/30 02:50:47 by nherbal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ void                                joinCommand(const std::vector<std::string>& 
                                                 std::map<int, Client>& clients,
                                                 int client_fd,
                                                 std::map<std::string, std::set<int>>& channels,
-                                                std::map<std::string, std::set<int>>& inviteList,  // <-- Pass by reference
-                                                std::map<std::string, std::set<char>>& channelModes // <-- Pass by reference
-                                                );
+                                                std::map<std::string, std::set<int>>& inviteList,  // now by reference
+                                                std::map<std::string, std::set<char>>& channelModes // now by reference
+);
 void                                pingCommand(const std::vector<std::string>& command,
                                                 int client_fd,
                                                 std::map<int, Client>& clients);
@@ -109,12 +109,12 @@ void                                inviteCommand(const std::vector<std::string>
                                                 int client_fd,
                                                 std::map<int, Client>& clients,
                                                 std::map<std::string, std::set<int>>& channels,
-                                                std::map<std::string, std::set<int>> inviteList);
+                                                std::map<std::string, std::set<int>>& inviteList);
 void                                modeCommand(const std::vector<std::string>& command,
                                                 int client_fd,
                                                 std::map<int, Client>& clients,
                                                 std::map<std::string, std::set<int>>& channels,
-                                                std::map<std::string, std::set<char>> channelModes);
+                                                std::map<std::string, std::set<char>>& channelModes);
 void                                debugServerState(std::map<std::string, std::set<int>>& channels,
                                                 std::map<std::string, std::set<char>>& channelModes,
                                                 const std::map<std::string, std::set<int>>& inviteList,

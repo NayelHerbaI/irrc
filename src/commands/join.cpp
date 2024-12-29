@@ -6,7 +6,7 @@
 /*   By: nherbal <nherbal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 23:06:05 by nherbal           #+#    #+#             */
-/*   Updated: 2024/12/30 02:40:05 by nherbal          ###   ########.fr       */
+/*   Updated: 2024/12/30 02:49:46 by nherbal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void joinCommand(
     std::map<int, Client>& clients,
     int client_fd,
     std::map<std::string, std::set<int>>& channels,
-    std::map<std::string, std::set<int>>& inviteList,  // <-- Pass by reference
-    std::map<std::string, std::set<char>>& channelModes // <-- Pass by reference
+    std::map<std::string, std::set<int>>& inviteList,  // now by reference
+    std::map<std::string, std::set<char>>& channelModes // now by reference
 )
 {
 if (command[0] == "JOIN") {
