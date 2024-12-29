@@ -6,7 +6,7 @@
 /*   By: nherbal <nherbal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 23:06:05 by nherbal           #+#    #+#             */
-/*   Updated: 2024/12/30 02:49:46 by nherbal          ###   ########.fr       */
+/*   Updated: 2024/12/30 03:07:11 by nherbal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ if (command[0] == "JOIN") {
 
         // Handle new channel creation
         if (is_new_channel) {
-            // Create the channel and initialize its modes
-            channels[channel_name] = {};        // Initialize the channel
-            channelModes[channel_name] = {};   // Initialize the channel's modes
-
-            // Log the creation of the new channel
-            std::cout << "\033[35m[INFO] : Created new channel: " << channel_name << "\033[0m" << std::endl;
+            channels[channel_name] = {};
+            // Only overwrite channelModes if it doesn't already exist
+            if (channelModes.find(channel_name) == channelModes.end()) {
+                channelModes[channel_name] = {};
+            }
+            std::cout << "[INFO] : Created new channel: " << channel_name << std::endl;
         }
 
         // Handle invite-only mode

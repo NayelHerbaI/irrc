@@ -6,7 +6,7 @@
 /*   By: nherbal <nherbal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 00:39:07 by nherbal           #+#    #+#             */
-/*   Updated: 2024/12/30 02:54:54 by nherbal          ###   ########.fr       */
+/*   Updated: 2024/12/30 03:09:24 by nherbal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void debugServerState(
 
     std::cout << "\n===================== SERVER STATE DEBUG =====================" << std::endl;
 
-    // Manually set invite-only mode for testing
-    std::string test_channel = "#testchannel";
-    channelModes[test_channel].insert('i');
-    std::cout << "[DEBUG] Manually set invite-only mode (+i) for " << test_channel << std::endl;
+    // // Manually set invite-only mode for testing
+    // std::string test_channel = "#testchannel";
+    // channelModes[test_channel].insert('i');
+    // std::cout << "[DEBUG] Manually set invite-only mode (+i) for " << test_channel << std::endl;
 
     // Channels
     std::cout << "[DEBUG] Channels and Members:" << std::endl;
