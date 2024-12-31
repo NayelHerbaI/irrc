@@ -6,7 +6,7 @@
 /*   By: nherbal <nherbal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:07:19 by nherbal           #+#    #+#             */
-/*   Updated: 2024/12/30 02:50:47 by nherbal          ###   ########.fr       */
+/*   Updated: 2024/12/30 09:55:44 by nherbal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,13 @@ void                                handleCommand(const std::vector<std::string>
                                                 std::map<int, bool>& isAuthenticated, 
                                                 std::map<int, Client>& clients,
                                                 std::map<std::string, std::set<int>>& channels,
-                                                std::map<std::string, std::set<int>> inviteList,
-                                                std::map<std::string, std::set<char>> channelModes);
+                                                std::map<std::string, std::set<int>>& inviteList,
+                                                std::map<std::string, std::set<char>>& channelModes,
+                                                std::map<std::string, std::string>& channelTopics,
+                                                std::map<std::string, int>& channelUserLimits,       // NEW
+                                                std::map<std::string, std::set<int>>& channelOperators,  // NEW
+                                                std::map<std::string, std::string>& channelKeys          // NEW
+);
 void                                passCommand(const std::vector<std::string>& command,
                                                 const std::string& server_password,
                                                 std::map<int, bool>& isAuthenticated,
@@ -81,8 +86,10 @@ void                                joinCommand(const std::vector<std::string>& 
                                                 std::map<int, Client>& clients,
                                                 int client_fd,
                                                 std::map<std::string, std::set<int>>& channels,
-                                                std::map<std::string, std::set<int>>& inviteList,  // now by reference
-                                                std::map<std::string, std::set<char>>& channelModes // now by reference
+                                                std::map<std::string, std::set<int>>& inviteList,
+                                                std::map<std::string, std::set<char>>& channelModes,
+                                                std::map<std::string, std::string>& channelKeys,        // for +k
+                                                std::map<std::string, int>& channelUserLimits           // for +l
 );
 void                                pingCommand(const std::vector<std::string>& command,
                                                 int client_fd,
@@ -114,9 +121,21 @@ void                                modeCommand(const std::vector<std::string>& 
                                                 int client_fd,
                                                 std::map<int, Client>& clients,
                                                 std::map<std::string, std::set<int>>& channels,
-                                                std::map<std::string, std::set<char>>& channelModes);
+                                                std::map<std::string, std::set<char>>& channelModes,
+                                                std::map<std::string, std::string>& channelKeys,         // NEW
+                                                std::map<std::string, std::set<int>>& channelOperators,  // NEW
+                                                std::map<std::string, int>& channelUserLimits            // NEW
+);
 void                                debugServerState(std::map<std::string, std::set<int>>& channels,
                                                 std::map<std::string, std::set<char>>& channelModes,
                                                 const std::map<std::string, std::set<int>>& inviteList,
                                                 const std::map<int, Client>& clients);
+void                                topicCommand(const std::vector<std::string> &command,
+                                                int client_fd,
+                                                std::map<int, Client> &clients,
+                                                std::map<std::string, std::set<int>> &channels,
+                                                std::map<std::string, std::string> &channelTopics,
+                                                std::map<std::string, std::set<char>>& channelModes // We'll need to check +t here
+
+);
 #endif

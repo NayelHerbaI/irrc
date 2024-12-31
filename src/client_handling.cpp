@@ -6,7 +6,7 @@
 /*   By: nherbal <nherbal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 21:54:50 by nherbal           #+#    #+#             */
-/*   Updated: 2024/12/29 23:36:47 by nherbal          ###   ########.fr       */
+/*   Updated: 2024/12/30 09:41:03 by nherbal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ void handleClients(int server_fd, const std::string& server_password) {
 
     std::map<std::string, std::set<char>> channelModes; // Channel name -> set of modes
 
+    std::map<std::string, std::string> channelTopics;
+    
+    std::map<std::string, int> channelUserLimits;       // NEW
+    std::map<std::string, std::set<int>> channelOperators;  // NEW
+    std::map<std::string, std::string> channelKeys;          // NEW
+    
     while (server_running)
     {
         int poll_count = poll(poll_fds, num_fds, 1000);
@@ -86,7 +92,7 @@ void handleClients(int server_fd, const std::string& server_password) {
                         // Parse and handle the command
                         std::vector<std::string> command = parseCommand(input);
                         if (!command.empty()) {
-                            handleCommand(command, poll_fds[i].fd, server_password, isAuthenticated, clients, channels, inviteList, channelModes);
+                            handleCommand(command, poll_fds[i].fd, server_password, isAuthenticated, clients, channels, inviteList, channelModes, channelTopics, channelUserLimits, channelOperators, channelKeys);
                         }
                     }
                 }

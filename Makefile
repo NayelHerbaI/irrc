@@ -6,7 +6,7 @@
 #    By: nherbal <nherbal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 20:28:19 by naherbal          #+#    #+#              #
-#    Updated: 2024/12/30 00:39:54 by nherbal          ###   ########.fr        #
+#    Updated: 2024/12/30 06:27:08 by nherbal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC	=		src/main.cpp				\
 			src/commands/kick.cpp		\
 			src/commands/invite.cpp		\
 			src/commands/mode.cpp		\
+			src/commands/topic.cpp		\
 
 OBJ		=	$(SRC:.c=.o)
 
